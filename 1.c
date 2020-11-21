@@ -16,28 +16,6 @@ typedef struct
 }list_type; 
 
 
-/*void menu() //帮助
-{
-    while (true)
-    {
-        printf("\n0.欢迎使用系统帮助！\n");
-        printf("\n1.初次进入系统后,请先选择增加学生信息;\n");
-        printf("\n2.按照菜单提示键入数字代号;\n");
-        printf("\n3.增加学生信息后,切记保存;\n");
-        printf("\n4.谢谢您的使用！\n");
-        printf("\n 退出帮助请按0\n");
-        int a;
-        scanf("%d", &a);
-        switch (a)
-        {
-        case 0:
-            return; //退出当前函数
-        default:
-            printf("输出错误");
-        }
-    }
-}*/
-
 
 void create_list(list_type *list)
 {
