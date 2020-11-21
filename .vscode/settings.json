@@ -9,6 +9,7 @@
         "cstdlib": "c",
         "type_traits": "c",
         "limits": "c",
-        "*.tcc": "c"
+        "*.tcc": "c",
+        "3.C": "cpp"
     }
 }

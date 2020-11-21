@@ -52,26 +52,17 @@ int main()
         scanf("%d", &back0);
             break;
         case 5:
-            //if (Insert(&list, temp1)) {
-            //printf("----插入成功----\n");
-            //list->length += 1;
-            //}
-            break;
-        case 6:
             delete (&list, list.length);
             break;
-            /*case 7:
-            Statistics(&list, temp1);
+        case 6:
+            exit0 = 1;
             break;
-        case 8:
-            exit = 1;
-            break;
-        */
+/*        case 7:
+            add_emements(&list);
+            break;*/
         default:
             break;
         }
-        //addmember();
-        //delete();
     };
 }
 
@@ -85,7 +76,7 @@ void menu()
     printf("-------------------大铁棍子医院医生信息簿------------------\n");
     printf("--------------------------帮助--------------------------\n");
     printf("1.添加医生信息\t2.显示医生信息\t3.查找医生\t4.查找房间号\n");
-    printf("5.插入医生信息\t6.删除医生信息\t7.统计医生人数\t\t8.退出\n");
+    printf("4.删除医生信息\t5.统计医生人数\t6.退出\t\n");
     printf("------------------------------------------------------------\n");
 };
 
@@ -109,6 +100,27 @@ void create_list(list_type *list, int list_length)
     scanf("%d", &back0);
 };
 
+/*void add_emements(list_type *list)
+{
+    list->length=20;
+     for (int i = 1; i < 21; i++)
+     {
+         switch (i)
+         {
+         case 1:
+             strcpy(list->data[i].name, &name0[10]);
+             break;
+        case 2:
+             strcpy(list->data[i].name, &name1[10]);
+             break;
+         default:
+             break;
+         }
+        
+     }
+
+};*/
+
 void showlist(list_type *list, int list_length)
 {
     int i;
@@ -121,6 +133,7 @@ void showlist(list_type *list, int list_length)
     printf("姓名\t房间号\t评级\t就职时间\n");
     for (i = 0; i < list_length; i++)
         printf("%s\t%s\t%s\t%s\n", list->data[i].name, list->data[i].room, list->data[i].grade, list->data[i].time);
+        printf("-------------------");
     printf("按任意键返回主菜单");
     scanf("%d", &back0);
 };

@@ -183,7 +183,6 @@ int Insert(SqList *s, int n) {
     return (OK);
 }
 
-//删除函数
 int Delete(SqList *s, int n) {
     int i, k;
 
