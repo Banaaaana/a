@@ -73,7 +73,7 @@ void start_list(list_type *list)
 
 void menu()
 {
-    printf("-------------------大铁棍子医院医生信息簿------------------\n");
+    printf("-------------------不讲武德医院医生信息簿------------------\n");
     printf("--------------------------帮助--------------------------\n");
     printf("1.添加医生信息\t2.显示医生信息\t3.查找医生\t4.查找房间号\n");
     printf("4.删除医生信息\t5.统计医生人数\t6.退出\t\n");
@@ -129,7 +129,7 @@ void showlist(list_type *list, int list_length)
         printf("顺序表长度错误!\n");
         return;
     }
-    printf("--------大铁棍子医院医生信息簿--------\n");
+    printf("--------不讲武德医院医生信息簿--------\n");
     printf("姓名\t房间号\t评级\t就职时间\n");
     for (i = 0; i < list_length; i++)
         printf("%s\t%s\t%s\t%s\n", list->data[i].name, list->data[i].room, list->data[i].grade, list->data[i].time);
@@ -192,7 +192,7 @@ int look_room(list_type *list, int list_length)
     return 0;
 };
 
-void addmember();
+
 void delete (list_type *list, int list_length)
 {
     int i_number_conclusion, a;
@@ -221,7 +221,7 @@ void delete (list_type *list, int list_length)
             return;
         }
     }
-    
+
     else
     {
         printf("请返回");
