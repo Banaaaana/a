@@ -41,25 +41,25 @@ int main()
         case 2:
             showlist(&list, list.length);
             break;
-            /*case 3:
-            Locate(&list, temp1);
-            break;
-        case 4:
-            search(&list, temp1);
-            break;
-        case 5:
-            if (Insert(&list, temp1)) {
-                printf("----插入成功----\n");
-                list->length += 1;
-            }
-            break;
-        case 6:
-            if (Delete(&list, temp1)) {
+        //case 3:
+            //look(&list, list.length);
+            //break;
+        //case 4:
+            //search(&list, temp1);
+            //break;
+        //case 5:
+            //if (Insert(&list, temp1)) {
+                //printf("----插入成功----\n");
+                //list->length += 1;
+            //}
+            //break;
+        /*case 6:
+            {Delete(&list, list.length);
                 printf("----删除成功----\n");
-                list->length -= 1;
-            }
-            break;
-        case 7:
+                list.length -= 1;
+            
+            break;}*/
+        /*case 7:
             Statistics(&list, temp1);
             break;
         case 8:
@@ -122,11 +122,11 @@ void showlist(list_type *list, int list_length)
         printf("%s\t%s\t%s\t%s\n", list->data[i].name, list->data[i].room, list->data[i].grade, list->data[i].time);
 };
 
-void delete(list_type *list, int list_length)
+void look(list_type *list, int list_length)
 {
     int i, flag = 0;
     char temp_name[20];
-    printf("请输入想要删除的医生的姓名：");
+    printf("请输入想要查找的医生的姓名：");
     scanf("%s", temp_name);
     for (i = 0; i < list_length; i++)
     {
@@ -148,6 +148,5 @@ void delete(list_type *list, int list_length)
 void addmember();
 void delete (list_type *list, int list_length)
 {
-
 };
 
