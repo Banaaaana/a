@@ -37,7 +37,6 @@ void create_list(list_type *list)
         
     }
 };
-
 int main()
 {
     list_type list;
