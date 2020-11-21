@@ -15,8 +15,6 @@ typedef struct
     int length;
 }list_type; 
 
-
-
 void create_list(list_type *list)
 {
     int i;
