@@ -42,10 +42,14 @@ int main()
             showlist(&list, list.length);
             break;
         case 3:
-            look(&list, list.length);
+            look_name(&list, list.length);
+            printf("按任意键返回主菜单");
+        scanf("%d", &back0);
             break;
         case 4:
-            //search(&list, temp1);
+            look_room(&list, list.length);
+            printf("按任意键返回主菜单");
+        scanf("%d", &back0);
             break;
         case 5:
             //if (Insert(&list, temp1)) {
@@ -99,11 +103,10 @@ void create_list(list_type *list, int list_length)
         scanf("%s", list->data[i].grade);
         printf("就职时间:");
         scanf("%s", list->data[i].time);
-
-        scanf("%d", &back0);
     }
     printf("添加成功\n");
     printf("按任意键返回主菜单");
+    scanf("%d", &back0);
 };
 
 void showlist(list_type *list, int list_length)
@@ -122,7 +125,7 @@ void showlist(list_type *list, int list_length)
     scanf("%d", &back0);
 };
 
-int look(list_type *list, int list_length)
+int look_name(list_type *list, int list_length)
 {
     int i, flag = 0;
     char temp_name[20];
@@ -142,21 +145,45 @@ int look(list_type *list, int list_length)
         printf("姓名\t房间号\t评级\t就职时间\n");
         printf("%s\t%s\t%s\t%s\n", list->data[i].name, list->data[i].room, list->data[i].grade, list->data[i].time);
         i_number = i;
-        printf("按任意键返回主菜单");
-        scanf("%d", &back0);
         return i_number;
     }
     else
         printf("暂未收录该医生信息\n");
-    printf("按任意键返回主菜单");
-    scanf("%d", &back0);
     return 0;
 };
+
+int look_room(list_type *list, int list_length)
+{
+    int i, flag = 0;
+    char temp_room[20];
+    printf("请输入想要查找的房间号：");
+    scanf("%s", temp_room);
+    for (i = 0; i < list_length; i++)
+    {
+        if (strcmp(temp_room, list->data[i].room) == 0)
+        {
+            flag = 1;
+            break;
+        }
+    }
+    if (flag == 1)
+    {
+        printf("----医生信息如下----\n");
+        printf("姓名\t房间号\t评级\t就职时间\n");
+        printf("%s\t%s\t%s\t%s\n", list->data[i].name, list->data[i].room, list->data[i].grade, list->data[i].time);
+        i_number = i;
+        return i_number;
+    }
+    else
+        printf("暂未收录该医生信息\n");
+    return 0;
+};
+
 void addmember();
 void delete (list_type *list, int list_length)
 {
     int i_number_conclusion, a;
-    i_number_conclusion = look(list, list_length);
+    i_number_conclusion = look_name(list, list_length);
     if (i_number_conclusion != 0)
     {
         printf("输入1来确认删除该医生的信息，输入0取消");
