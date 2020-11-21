@@ -221,6 +221,7 @@ void delete (list_type *list, int list_length)
             return;
         }
     }
+    
     else
     {
         printf("请返回");
