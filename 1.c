@@ -3,10 +3,10 @@
 #include <string.h>
 #define true 1
 #define false 0
-#define DATA_LENGTH_MAXNUM 20
+#define DATA_LENGTH_MAXNUM 30
 #define MAXNUM 40
 
-int exit0, i_number = 0, back0;
+int exit0, i_number = 0 ;
 
 typedef struct BIG_STICK_HOSPITAL
 {
@@ -14,20 +14,26 @@ typedef struct BIG_STICK_HOSPITAL
     char room[DATA_LENGTH_MAXNUM];
     char grade[DATA_LENGTH_MAXNUM];
     char time[DATA_LENGTH_MAXNUM];
-} doctor;
+}doctor;
 
-typedef struct list
+doctor doctor0[20]={
+    {'张','a','a','a'},
+    {'a','a','a','a'},
+    {'a','a','a','a'},
+    };
+
+struct list
 {
     doctor data[MAXNUM];
     int length;
-} list_type;
+};
 
 int main()
 {
-    list_type list;
+    struct list list;
     int temp, temp1;
     start_list(&list);
-    while (exit != 1)
+    while (1)
     {
         menu(&list);
         scanf("%d", &temp);
@@ -43,13 +49,13 @@ int main()
             break;
         case 3:
             look_name(&list, list.length);
-            printf("按任意键返回主菜单");
-        scanf("%d", &back0);
+            printf("按任意键返回主菜单\n");
+            getch();
             break;
         case 4:
             look_room(&list, list.length);
-            printf("按任意键返回主菜单");
-        scanf("%d", &back0);
+            printf("按任意键返回主菜单\n");
+            getch();
             break;
         case 5:
             //if (Insert(&list, temp1)) {
@@ -62,11 +68,11 @@ int main()
             break;
             /*case 7:
             Statistics(&list, temp1);
-            break;
+            break;*/
         case 8:
-            exit = 1;
+            return 0;
             break;
-        */
+
         default:
             break;
         }
@@ -75,9 +81,14 @@ int main()
     };
 }
 
-void start_list(list_type *list)
-{
-    list->length = 0;
+void start_list(struct list *list)
+{    
+    list->length = 20;
+    for (int i = 0; i < 20; i++)
+    {
+        strcpy(list->data[i].name,doctor0[i].name);
+    }
+
 };
 
 void menu()
@@ -89,10 +100,10 @@ void menu()
     printf("------------------------------------------------------------\n");
 };
 
-void create_list(list_type *list, int list_length)
+void create_list(struct list *list, int list_length)
 {
     int i;
-    printf("请分别输入每位医生的信息（不要输入中文）:\n");
+    printf("请分别输入每位医生的信息:\n");
     for (i = 0; i < list_length; i++)
     {
         printf("姓名:");
@@ -103,13 +114,14 @@ void create_list(list_type *list, int list_length)
         scanf("%s", list->data[i].grade);
         printf("就职时间:");
         scanf("%s", list->data[i].time);
+        printf("----------------\n");
     }
     printf("添加成功\n");
-    printf("按任意键返回主菜单");
-    scanf("%d", &back0);
+    printf("按任意键返回主菜单\n");
+    getch();
 };
 
-void showlist(list_type *list, int list_length)
+void showlist(struct list *list, int list_length)
 {
     int i;
     if (list->length <= 0)
@@ -121,11 +133,11 @@ void showlist(list_type *list, int list_length)
     printf("姓名\t房间号\t评级\t就职时间\n");
     for (i = 0; i < list_length; i++)
         printf("%s\t%s\t%s\t%s\n", list->data[i].name, list->data[i].room, list->data[i].grade, list->data[i].time);
-    printf("按任意键返回主菜单");
-    scanf("%d", &back0);
+    printf("按任意键返回主菜单\n");
+    getch();
 };
 
-int look_name(list_type *list, int list_length)
+int look_name(struct list *list, int list_length)
 {
     int i, flag = 0;
     char temp_name[20];
@@ -152,7 +164,7 @@ int look_name(list_type *list, int list_length)
     return 0;
 };
 
-int look_room(list_type *list, int list_length)
+int look_room(struct list *list, int list_length)
 {
     int i, flag = 0;
     char temp_room[20];
@@ -180,7 +192,7 @@ int look_room(list_type *list, int list_length)
 };
 
 void addmember();
-void delete (list_type *list, int list_length)
+void delete (struct list *list, int list_length)
 {
     int i_number_conclusion, a;
     i_number_conclusion = look_name(list, list_length);
@@ -191,27 +203,27 @@ void delete (list_type *list, int list_length)
         if (a == -1)
         {
             int i = i_number_conclusion;
-            strcpy(list->data[i].name, list->data[i+1].name);
-            strcpy(list->data[i].room, list->data[i+1].room);
-            strcpy(list->data[i].grade, list->data[i+1].grade);
-            strcpy(list->data[i].time, list->data[i+1].time);
+            strcpy(list->data[i].name, list->data[i + 1].name);
+            strcpy(list->data[i].room, list->data[i + 1].room);
+            strcpy(list->data[i].grade, list->data[i + 1].grade);
+            strcpy(list->data[i].time, list->data[i + 1].time);
             list->length--;
             printf("删除成功");
             showlist(list, list->length);
-            printf("按任意键返回主菜单");
-            scanf("%d", &back0);
+            printf("按任意键返回主菜单\n");
+            getch();
         }
         else
         {
-            printf("按任意键返回主菜单");
-            scanf("%d", &back0);
+            printf("按任意键返回主菜单\n");
+            getch();
             return;
         }
     }
     else
     {
-        printf("请返回");
-        printf("按任意键返回主菜单");
-        scanf("%d", &back0);
+        printf("删除失败");
+        printf("按任意键返回主菜单\n");
+        getch();
     }
 }
