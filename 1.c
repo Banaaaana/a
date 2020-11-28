@@ -17,9 +17,9 @@ typedef struct BIG_STICK_HOSPITAL
 }doctor;
 
 doctor doctor0[20]={
-    {'张','a','a','a'},
-    {'a','a','a','a'},
-    {'a','a','a','a'},
+    {"zhang","A101","A+","2005.2.1"},
+    {"zhang","A101","A+","2005.2.1"},
+    {"zhang","A101","A+","2005.2.1"},
     };
 
 struct list
@@ -87,6 +87,9 @@ void start_list(struct list *list)
     for (int i = 0; i < 20; i++)
     {
         strcpy(list->data[i].name,doctor0[i].name);
+        strcpy(list->data[i].room,doctor0[i].room);
+        strcpy(list->data[i].grade,doctor0[i].grade);
+        strcpy(list->data[i].time,doctor0[i].time);
     }
 
 };
